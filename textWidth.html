@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>获取文本盒子宽度</title>
+  <style type="text/css">
+    #labelText {
+      color: black;
+      line-height: 1.2;
+      white-space: nowrap;
+      top: 0;
+      left: 0;
+      position: absolute;
+      display: block;
+      font-size: 16px;
+      z-index: -100;
+    }
+  </style>
+</head>
+<body>
+  <div id='labelText'>
+    Live like you were dying, Love because you do.
+  </div>
+  <script>
+    const textEle = document.getElementById('labelText');
+    console.log(textEle.clientWidth);
+</script>
+</body>
+</html>
