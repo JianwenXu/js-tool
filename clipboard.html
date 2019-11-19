@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>复制操作</title>
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="applicable-device" content="mobile">
+</head>
+<body>
+  <a onClick="copy(this)" data="测试复制文本">复制</a>
+  <div
+    style="margin-top: 100px;"
+  >说明：<br />input 元素设置成宽高为0不生效</div>
+  <input
+    id="copy_content"
+    type="text"
+    value=""
+    style="position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;outline: none;"
+  />
+  <script type="text/javascript">
+    function copy(ElementObj) {
+      var clickContent = ElementObj.getAttribute('data');  // 获取要复制的值
+      var inputElement =  document.getElementById("copy_content");  // 获取要赋值的input的元素
+      inputElement.value = clickContent;  // 给input框赋值
+      inputElement.select();// 选中input框的内容
+      document.execCommand("copy");// 执行浏览器复制命令
+    }
+  </script>
+</body>
+</html>
