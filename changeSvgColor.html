@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css 改变 svg 颜色</title>
+  <style type="text/css">
+    .imgBox {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+    }
+    .img {
+      width: 50px;
+    }
+    .img1 {
+      margin-left: 100px;
+      filter: drop-shadow(#f00 -100px 0);
+    }
+    .img2 {
+      margin-left: 100px;
+      filter: drop-shadow(#0f0 -100px 0);
+    }
+  </style>
+</head>
+<body>
+  <div class="imgBox">
+    <img src="assets/fail.svg" class="img img1">
+  </div>
+  <div class="imgBox">
+    <img src="assets/fail.svg" class="img img2">
+  </div>
+</body>
+</html>
