@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数据类型</title>
+</head>
+<body>
+  判断一个数据的数据类型
+  <script type="text/javascript">
+    console.log('typeof 运算符 \n');
+    console.log('typeof 1', typeof 1); // "number"
+    console.log('typeof "1"', typeof "1"); // "string"
+    console.log('typeof true', typeof true); // "boolean"
+    console.log('typeof {}', typeof {}); // "object"
+    console.log('typeof []', typeof []); // "object "
+    console.log('typeof function(){}', typeof function(){}); // "function"
+    console.log('typeof null', typeof null); // "object"
+    console.log('typeof undefined', typeof undefined); // "undefined"
+    console.log('判断一个数据是不是数组\n');
+    console.log('Array.prototype.isPrototypeOf([])', Array.prototype.isPrototypeOf([])); // true
+    console.log('Array.prototype.isPrototypeOf({})', Array.prototype.isPrototypeOf({})); // false
+    console.log('Array.isArray([1, 2, 3])', Array.isArray([1, 2, 3])); // true
+    console.log('Array.isArray({foo: 123})', Array.isArray({foo: 123})); // false
+    console.log('Array.isArray(\'foobar\')', Array.isArray('foobar'));   // false
+    console.log('Array.isArray(undefined)', Array.isArray(undefined));  // false　
+  </script>
+</body>
+</html>
