@@ -3,4 +3,4 @@
 1.clipboard.html js原生复制内容到剪切板
 2.notable 走马灯
 3.textWidth 文本盒子宽度
-4.css设置svg颜色
+4.nodePos 获取元素当前位置
