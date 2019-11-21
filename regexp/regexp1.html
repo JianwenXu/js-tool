@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>match 方法</title>
+</head>
+<body>
+  <p>match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。</p>
+  <p>返回一个数组</p>
+  <script type="text/javascript">
+    var s = '2018-10-07T11:48:47 Asia/zh-cn';
+    var r1 = s.match(/\d{1,}/g);
+    var r2 = s.match(/\d+/g);
+    console.log('原始字符串', s);
+    console.log('r1 匹配结果', r1);
+    console.log('r2 匹配结果', r2);
+  </script>
+</body>
+</html>
