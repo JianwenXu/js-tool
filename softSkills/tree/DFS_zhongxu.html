@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>深度优先遍历 中序</title>
+</head>
+<body>
+  <h1>深度优先遍历 中序遍历 左根右</h1>
+  <script type="text/javascript">
+    var t = {
+      value: 1,
+      left: {
+        value: 2,
+        left: { value: 4 },
+        right: { value: 5 }
+      },
+      right:{
+        value: 3,
+        right: { value: 6 }
+      }
+    };
+    function traverse(t, arr) {
+      if (!t || t.value === undefined || t.value === null) {
+        return;
+      }
+      traverse(t.left, arr);
+      arr.push(t.value);
+      traverse(t.right, arr);
+    }
+    var arr = [];
+    traverse(t, arr);
+    console.log(arr);
+  </script>
+</body>
+</html>

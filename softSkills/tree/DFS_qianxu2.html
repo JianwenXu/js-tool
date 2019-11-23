@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>深度优先遍历 前序 非递归</title>
+</head>
+<body>
+  <h1>深度优先遍历 前序 非递归(根左右)</h1>
+  <script type="text/javascript">
+    function Node(value, left, right) {
+      this.value = value;
+      this.left = left;
+      this.right = right;
+    }
+    var t6 = new Node(6, null, null);
+    var t5 = new Node(5, null, null);
+    var t4 = new Node(4, null, null);
+    var t3 = new Node(3, null, t6);
+    var t2 = new Node(2, t4, t5);
+    var t = new Node(1, t2, t3);
+
+    function traverse(t) {
+      if (!t) {
+        return [];
+      }
+      var result = [];
+      var stack = [];
+      var p = t;
+      while(p || stack.length) {
+        while(p) {
+          result.push(p.value);
+          stack.push(p);
+          p = p.left;
+        }
+        if (stack.length) {
+          p = stack.pop();
+          p = p.right;
+        }
+      }
+      return result;
+    }
+    console.log(traverse(t));
+  </script>
+</body>
+</html>
