@@ -5,9 +5,23 @@
   <title>数组去重</title>
 </head>
 <body>
-  数组去重
+  <h1>数组去重</h1>
+  <p>已知数据结构users，请实现语法支持user.unique能够按照name字段去重，并输出结构为：[“a”,“b”]</p>
   <script type="text/javascript">
-
+    var users=[
+      { id:1,name:"a" },
+      { id:2,name:"a" },
+      { id:3,name:"b" },
+      { id:4,name:"v" }
+    ];
+    Array.prototype.unique = function() {
+      var result = new Set();
+      this.map(item => {
+        result.add(item.name);
+      });
+      return [...result];
+    };
+    console.log('测试unique', users.unique());
   </script>
 </body>
 </html>

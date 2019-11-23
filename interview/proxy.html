@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proxy Get</title>
+</head>
+<body>
+  <p>已知如下对象，请基于es6的proxy方法设计一个属性拦截读取操作的例子，要求实现去访问目标对象example中不存在的属性时，抛出错误：Property “$(property)” does not exist</p>
+  <script type="text/javascript">
+    const man={
+      name:'jscoder',
+      age:22
+    };
+    var handler = {
+      get: function(target, key) {
+        if (key in target) {
+          return target[key];
+        } else {
+          throw new ReferenceError(`Property “${key}” does not exist`);
+        }
+      }
+    };
+    const proxy = new Proxy(man, handler);
+    console.log(proxy.name);
+    console.log(proxy.age1);
+  </script>
+</body>
+</html>

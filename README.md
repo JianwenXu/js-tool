@@ -8,3 +8,6 @@
 6.datatype 判断数据类型
 7.interview
   1) arrayUnique 数组去重
+  2) proxy get方法
+8.softSkills 算法加数据结构
+  1) tree 树
