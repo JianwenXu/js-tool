@@ -13,3 +13,6 @@
   1) tree 树
     深度优先遍历（前序，中序，后序，递归+非递归）
     广度优先遍历
+9.leavePage 监听页面离开
+  1) onbeforeunload
+  2) visibilityState

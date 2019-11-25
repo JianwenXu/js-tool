@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+  <a href="https://www.baidu.com/">点击调转</a>
+<script>
+  window.onbeforeunload = function (e) {
+    e = e || window.event;
+    // 兼容IE8和Firefox 4之前的版本
+    if (e) {
+      e.returnValue = '关闭提示';
+    }
+    // Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+
+    return '关闭提示';
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>页面可见性监听</title>
+</head>
+<body>
+  页面可见性监听
+  <script type="text/javascript">
+    // TODO 增加各浏览器兼容性
+    // 添加离开页面监听
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') {
+        console.log('页面隐藏')
+      } else {
+        console.log('其他情况', document.visibilityState);
+      }
+    });
+  </script>
+</body>
+</html>
