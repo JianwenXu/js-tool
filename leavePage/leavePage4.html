@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>onunload 事件</title>
+  <meta name="applicable-device" content="mobile">
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <script src="https://cdn.bootcss.com/vConsole/2.5.2/vconsole.min.js"></script>
+</head>
+<body>
+  测试 onunload 事件 (ios 和 android 都行)
+  <script type="text/javascript">
+    var leaveTime = localStorage.getItem('LEAVE_TIME');
+    console.log('离开时间', leaveTime);
+    window.onunload = function() {
+      localStorage.setItem('LEAVE_TIME', new Date().getTime());
+    };
+  </script>
+</body>
+</html>

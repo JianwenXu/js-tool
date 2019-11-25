@@ -16,3 +16,5 @@
 9.leavePage 监听页面离开
   1) onbeforeunload
   2) visibilityState
+  3) popstate
+  4) onunload
