@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>测试移动端键盘收起</title>
+  <meta name="applicable-device" content="mobile">
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <script src="https://cdn.bootcss.com/vConsole/2.5.2/vconsole.min.js"></script>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100vh;
+      width: 100vw;
+    }
+    .outbox {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .box {
+      flex: 1;
+      background: #ccc;
+    }
+    .footer {
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background: #f00;
+    }
+    .btn {
+      padding: 12px;
+      border: 1px solid #ff0;
+    }
+    .input {
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <script type="text/javascript">
+    function blurTest() {
+      setTimeout(function() {
+        document.activeElement.scrollIntoViewIfNeeded(true);
+      }, 100);
+    }
+  </script>
+  <div class="outbox">
+    <div class="box">
+      <p>flex 盒子</p>
+      <p>ios 手机微信内置浏览器input失焦之后键盘不收起</p>
+    </div>
+    <div class="footer">
+      <input class="input" type="text" name="test" onblur="blurTest()">
+      <button class="btn">测试22</button>
+    </div>
+  </div>
+</body>
+</html>
