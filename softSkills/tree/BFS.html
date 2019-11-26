@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>广度优先遍历</title>
+</head>
+<body>
+  广度优先遍历 BFS
+  <script type="text/javascript">
+    function Node(value, left, right) {
+      this.value = value;
+      this.left = left;
+      this.right = right;
+    }
+    var t15 = new Node(15, null, null);
+    var t14 = new Node(14, null, null);
+    var t13 = new Node(13, null, null);
+    var t12 = new Node(12, null, null);
+    var t11 = new Node(11, null, null);
+    var t10 = new Node(10, null, null);
+    var t9 = new Node(9, null, null);
+    var t8 = new Node(8, null, null);
+    var t7 = new Node(7, t14, t15);
+    var t6 = new Node(6, t12, t13);
+    var t5 = new Node(5, t10, t11);
+    var t4 = new Node(4, t8, t9);
+    var t3 = new Node(3, t6, t7);
+    var t2 = new Node(2, t4, t5);
+    var t = new Node(1, t2, t3);
+
+    function traverse(t) {
+      if (!t) {
+        return [];
+      }
+      var p = t;
+      var result = [p.value];
+      var queue = [p];
+      while (queue.length) {
+        p = queue.shift();
+        var left = p.left;
+        var right = p.right;
+        if (left) {
+          queue.push(left);
+          result.push(left.value);
+        }
+        if (right) {
+          queue.push(right);
+          result.push(right.value);
+        }
+      }
+      return result;
+    }
+    console.log(traverse(t));
+  </script>
+</body>
+</html>
