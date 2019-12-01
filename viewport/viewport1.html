@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>viewport</title>
+  <meta name="applicable-device" content="mobile">
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <script src="https://cdn.bootcss.com/vConsole/2.5.2/vconsole.min.js"></script>
+</head>
+<body >
+  viewport
+  <input type="text" name="test" id='input' onfocus="print()" onblur="print()" />
+  <div>
+    <p>window.innerHeight: <span id="v1"></span></p>
+    <p>window.innerWidth: <span id="v2"></span></p>
+    <p>document.body.clientHeight: <span id="v3"></span></p>
+    <p>document.body.clientWidth: <span id="v4"></span></p>
+    <p>document.documentElement.clientHeight: <span id="v5"></span></p>
+    <p>document.documentElement.clientWidth: <span id="v6"></span></p>
+  </div>
+  <script type="text/javascript">
+    function print() {
+      document.getElementById('v1').innerHTML = window.innerHeight;
+      document.getElementById('v2').innerHTML = window.innerWidth;
+      document.getElementById('v3').innerHTML = document.body.clientHeight;
+      document.getElementById('v4').innerHTML = document.body.clientWidth;
+      document.getElementById('v5').innerHTML = document.documentElement.clientHeight;
+      document.getElementById('v6').innerHTML = document.documentElement.clientWidth;
+    }
+    var input = document.getElementById('input');
+    var evt = "onorientationchange" in window ? "orientationchange" : "resize";
+    window.addEventListener(evt, resize, false);
+    function resize() {
+      if(window.orientation == 0 || window.orientation == 180) {
+        print();
+      } else {
+        print();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -21,4 +21,5 @@
   4) onunload
 10. keyboard ios 手机input 失焦之后键盘不收起
 11. error 测试try...catch
+12. viewport
 
