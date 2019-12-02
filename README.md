@@ -10,6 +10,8 @@
   1) arrayUnique 数组去重
   2) proxy get方法
   3) 虚拟DOM渲染
+  4) 实现 eventEmitter
+  5) 实现函数的节流与防抖
 8.softSkills 算法加数据结构
   1) tree 树
     深度优先遍历（前序，中序，后序，递归+非递归）
@@ -22,4 +24,5 @@
 10. keyboard ios 手机input 失焦之后键盘不收起
 11. error 测试try...catch
 12. viewport
+13. Date
 

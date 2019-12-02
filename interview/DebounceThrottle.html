@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数的节流与防抖</title>
+</head>
+<body>
+  函数的节流与防抖
+  <script type="text/javascript">
+    const _ = {};
+    // 防抖
+    _.debounce = (fn, delay) => {
+      let timer = null;
+      return () => {
+        clearTimeout(timer);
+        timer = setTimeout(fn, delay);
+      }
+    }
+    // 节流
+    _.throttle = (fn, delay) => {
+      let timer = null;
+      return () => {
+        if(timer) {
+          return;
+        }
+        timer = setTimeout(() => {
+          fn();
+          timer = null;
+        }, delay)
+      };
+    }
+    // 函数节流的时间戳版实现
+    _.throttle2 = (fn, delay) => {
+      let time = Date.now();
+      return () => {
+        const interval = Date.now - time;
+        if (interval < delay) {
+          return;
+        } else {
+          fn();
+          time = Date.now();
+        }
+      };
+    }
+  </script>
+</body>
+</html>
