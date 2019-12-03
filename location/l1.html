@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>获取位置信息</title>
+  <meta name="applicable-device" content="mobile">
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <script src="https://cdn.bootcss.com/vConsole/2.5.2/vconsole.min.js"></script>
+  <!-- 引入腾讯模块CDN -->
+  <script  type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js" ></script>
+</head>
+<body>
+  获取位置信息
+  <p>一直获取失败，也不知道是因为啥</p>
+  <div id='location'></div>
+  <script type="text/javascript">
+    // 调用
+    getPosition();
+    var locaBox = document.getElementById('location');
+    function getPosition() {
+      var geolocation = new qq.maps.Geolocation("xx-xx-xx-xx", "myapp");  // xx-xx-xx-xx为开发密钥，腾讯位置服务申请 http://lbs.qq.com/guides/startup.html
+      if (geolocation) {
+        geolocation.getLocation(success, error);
+      } else {
+        alert("获取失败");
+      }
+    }
+    // 获取成功
+    function success(position) {
+      locaBox.innerHTML = `省${position.province}市${position.city}详细地址${position.addr}`;
+    }
+    // 获取失败
+    function error(err) {
+      locaBox.innerHTML = `位置获取失败：${JSON.stringify(err)}`;
+    }
+  </script>
+</body>
+</html>

@@ -25,4 +25,5 @@
 11. error 测试try...catch
 12. viewport
 13. Date
+14. Location 位置相关，获取地理位置信息
 

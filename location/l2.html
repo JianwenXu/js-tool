@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>获取位置信息</title>
+  <meta name="applicable-device" content="mobile">
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <script src="https://cdn.bootcss.com/vConsole/2.5.2/vconsole.min.js"></script>
+</head>
+<body>
+  获取位置信息
+  <script type="text/javascript">
+    // H5 获取当前位置经纬度
+    var location_lon = '',location_lat = ''; // 经度,纬度
+    if (navigator.geolocation) {
+      var successCb = (position) => {
+        console.log('获取位置成功', position)
+      };
+      var errorCb = (err) => {
+        console.log('获取位置失败', err);
+      }
+      navigator.geolocation.getCurrentPosition(successCb, errorCb);
+    }else {
+      console.log('您的设备不支持定位功能');
+    }
+  </script>
+</body>
+</html>
