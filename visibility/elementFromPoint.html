@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>elementFromPoint Demo</title>
+</head>
+<body>
+	<h3>elementFromPoint Demo</h3>
+	<p>链接：<a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/elementFromPoint">https://developer.mozilla.org/zh-CN/docs/Web/API/Document/elementFromPoint</a></p>
+	<p>返回当前文档上处于指定坐标位置最顶层的元素, 坐标是相对于包含该文档的浏览器窗口的左上角为原点来计算的, 通常 x 和 y 坐标都应为正数.</p>
+	<h5>语法</h5>
+	<p>var element = document.elementFromPoint(x, y);</p>
+	<h5>说明</h5>
+	<p>
+		如果指定点的元素属于另一个文档（例如，iframe的子文档），则返回调用该方法的文档的DOM中的元素（在iframe中，是iframe本身）。 如果给定点的元素是匿名的或XBL生成的内容，例如文本框的滚动条，则返回第一个非匿名祖先元素（例如，文本框）。
+	</p>
+</body>
+</html>
