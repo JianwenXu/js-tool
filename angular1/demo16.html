@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo16</title>
+	<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<h3>angular.lowercase</h3>
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+		<h3>angular.uppercase</h3>
+		<p>{{ y1 }}</p>
+		<p>{{ y2 }}</p>
+		<h3>angular.isString</h3>
+		<p>{{ z1 }}</p>
+		<h3>angular.isNumber</h3>
+		<p>{{ z2 }}</p>
+		<p>{{ z3 }}</p>
+		<p>{{ z4 }}</p>
+	</div>
+	 
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+	    $scope.x1 = "RUNOOB";
+	    $scope.x2 = angular.lowercase($scope.x1); // angular <1.7
+	    // $scope.x2 = angular.$$lowercase($scope.x1); // angular 1.7+
+	    $scope.y1 = "runoob";
+	    $scope.y2 = angular.uppercase($scope.y1); // angular <1.7
+	    // $scope.y2 = angular.$$uppercase($scope.y1); // angular 1.7+
+	    $scope.z1 = angular.isString($scope.x1);
+	    $scope.z2 = angular.isNumber($scope.x1);
+	    $scope.z3 = angular.isNumber(123);
+	    $scope.z4 = angular.isNumber('123');
+		});
+	</script>
+</body>
+</html>

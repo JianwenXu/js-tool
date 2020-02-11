@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo5</title>
+	<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+	<style type="text/css">
+		/*ng-model 指令基于它们的状态为 HTML 元素提供了 CSS 类*/
+		input.ng-invalid {
+			background: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<p>
+			name:
+			<input type="text" ng-model="name" />
+		</p>
+		<p>
+			<h3>Name: {{ name }}</h3>
+		</p>
+		<p>校验邮箱的合法性</p>
+		<p>ng-model 指令基于他们的状态为 HTML 元素提供了 CSS 类</p>
+		<ul>
+			<li ng-repeat="style in styleList">{{style}}</li>
+		</ul>
+		<form name="myForm">
+			Email:
+			<input type="email" name="myAddress" ng-model="text" required />
+			<span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+			<div>
+				<p>状态</p>
+				<p>valid: {{myForm.myAddress.$valid}}</p>
+				<p>dirty: {{myForm.myAddress.$dirty}}</p>
+				<p>Touched: {{myForm.myAddress.$touched}}</p>
+			</div>
+		</form>
+	</div>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller("myCtrl", function ($scope) {
+			$scope.name = 'jianwen';
+			$scope.styleList = [
+				'ng-empty',
+				'ng-not-empty',
+				'ng-touched',
+				'ng-untouched',
+				'ng-valid',
+				'ng-invalid',
+				'ng-dirty',
+				'ng-pending',
+				'ng-pristine'
+			];
+		});
+	</script>
+</body>
+</html>

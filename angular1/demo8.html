@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo8</title>
+	<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<h3>Angular 服务</h3>
+		<p>Angular 内建了 30 多种服务, 想要使用服务需要在 controller 里面定义 ??</p>
+		<p>$location 服务: {{pageUrl}}</p>
+		<p>$http 服务</p>
+		<p>$timeout 服务 (对应 js 中的 setTimeOut)</p>
+		<p>$interval 服务 (对应 js 中的 setInterval)</p>
+		<h4>自定义服务: {{ hex }}</h4>
+		<p>创建了自定义服务，且连接到应用上后，可以在控制器，指令，过滤器或其他服务中使用它</p>
+		<p>{{count}}</p>
+		<p>{{count | myFormat}}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+		app.controller("myCtrl", function($scope, $location, hexafy) {
+			$scope.pageUrl = $location.absUrl();
+			$scope.hex = hexafy.myFunc(255);
+			$scope.count = 254;
+		});
+		app.service('hexafy', function() {
+			this.myFunc = function(x) {
+				return x.toString(16);
+			}
+		});
+		app.filter('myFormat', ['hexafy', function(hexafy) {
+			return function(x) {
+				return hexafy.myFunc(x);
+			}
+		}])
+	</script>
+</body>
+</html>

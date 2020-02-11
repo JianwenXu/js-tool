@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo9</title>
+	<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<h3>$http 服务</h3>
+		<h3>Select 选择框</h3>
+		<p>使用 ng-options 实现下拉选择</p>
+		<select ng-init="selectedName=names[0]" ng-model="selectedName" ng-options="x for x in names">
+		</select>
+		<p>也可以使用 ng-repeat 实现</p>
+		<select>
+			<option ng-repeat="x in names">{{ x }}</option>
+			option
+		</select>
+		<p>
+			ng-repeat 指令是通过数组来循环 HTML 代码来创建下拉列表，但 ng-options 指令更适合创建下拉列表，它有以下优势：
+			使用 ng-options 的选项是一个对象， ng-repeat 是一个字符串。
+		</p>
+		<p>使用 ng-options 实现 (对象): {{selectedSite}}</p>
+		<select ng-init="selectedSite=sites[0]" ng-model="selectedSite" ng-options="x.site for x in sites">
+		</select>
+		<p>使用 ng-repeat 实现 (串): {{ selectedSite2 }}</p>
+		<select ng-model="selectedSite2" ng-init="selectedSite2=sites[0].site">
+			<option ng-repeat="x in sites">{{x.site}}</option>}
+		</select>
+		<h3>数据源为对象</h3>
+		<p>使用对象作为数据源, x 为键(key), y 为值(value)</p>
+		<p>你的选择为: {{ selectedSite3 }}</p>
+		<p>说明，对象作为数据源的时候选择的数据为 value , value 可以设置为对象，当然也可以直接使用某个属性值</p>
+		<select ng-model="selectedSite3" ng-options="x for (x, y) in sites2"></select>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.names = [ 'Baidu', 'QQ', 'Wechat' ];
+			$scope.sites = [
+		    {site : "Google", url : "http://www.google.com"},
+		    {site : "Runoob", url : "http://www.runoob.com"},
+		    {site : "Taobao", url : "http://www.taobao.com"}
+			];
+			$scope.sites2 = {
+		    site01: "Google",
+		    site02: "Runoob",
+		    site03: "Taobao"
+			};
+			$scope.cars = {
+				car01: {brand : "Ford", model : "Mustang", color : "red"},
+				car02: {brand : "Fiat", model : "500", color : "white"},
+				car03: {brand : "Volvo", model : "XC90", color : "black"}
+			};
+		});
+	</script>
+</body>
+</html>

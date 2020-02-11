@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo18</title>
+	<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="sitesCtrl">
+	<p>在 AngularJS 中，你可以在 HTML 中包含 HTML 文件。</p>
+	<p style="color: red">报错: Referrer Policy: no-referrer-when-downgrade</p>
+	<div ng-include="'./demo18/runoob.html'" ></div>
+  <div ng-include="'demo18/sites.html'"></div>
+	<h3>跨域包含</h3>
+	<p>默认情况下， ng-include 指令不允许包含其他域名的文件。</p>
+	<p>如果你需要包含其他域名的文件，你需要设置域名访问白名单</p>
+	<p>此外，你还需要设置服务端允许跨域访问</p>
+	<script>
+	var app = angular.module('myApp', []);
+	app.controller('sitesCtrl', function($scope, $http) {
+	  $scope.names = [
+	  	{ Name: 'li', Url: 'http://www.baidu.com' },
+	  	{ Name: 'mingren', Url: 'http://www.google.com' },
+	  ];
+	});
+	</script>
+</body>
+</html>
