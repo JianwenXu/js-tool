@@ -25,7 +25,8 @@
 		    var left1 = left[0];
 		    var maskLen = left.length - 1;
 		    var suffix = arguments[3];
-		    var r = left1 + genMask(maskLen) + '@' + suffix;
+		    var renderLeft = left.length > 1 ? (left1 + genMask(maskLen)) : '*';
+		    var r = renderLeft + '@' + suffix;
 		    return r;
 		  });
 		  return result;
@@ -57,7 +58,7 @@
 			return result;
 		}
 
-		var s1 = '你好，我的邮箱是 219441@qq.com, 有事请@我, 他的邮箱是 q_qq_22@163.com';
+		var s1 = '你好，我的邮箱是 2@qq.com, 有事请@我, 他的邮箱是 q_qq_22@163.com';
 		var s2 = ddmEmail(s1);
 		console.log(s1);
 		console.log(s2);
