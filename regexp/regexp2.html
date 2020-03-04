@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据脱敏</title>
+</head>
+<body>
+	<p>邮箱脱敏</p>
+	<script type="text/javascript" charset="utf-8">
+		function genMask(length, mChar) {
+		  if (length <= 0) {
+		    return '';
+		  }
+		  if (!mChar) {
+		    mChar = '*';
+		  }
+		  var maskArray = Array.apply(null, Array(length)).map(function() { return mChar; });
+		  return maskArray.join('');
+		}
+
+		function ddmEmail(source) {
+		  var regexp = /(([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+)@(([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3})/g;
+		  var result = source.replace(regexp, function() {
+		    var left = arguments[1]; // 第一个字符
+		    var left1 = left[0];
+		    var maskLen = left.length - 1;
+		    var suffix = arguments[3];
+		    var r = left1 + genMask(maskLen) + '@' + suffix;
+		    return r;
+		  });
+		  return result;
+		}
+
+		function ddmIdCard(source) {
+			var regexp18= /([1-9]\d{3})\d{2}(19\d{2}|20\d{2})(0[1-9]|1[0|1|2])(0[1-9]|[1|2]\d|3[0|1])\d{2}(\d(\d|X|x))/g;
+			var result = source.replace(regexp18, function() {
+				var prefix = arguments[1];
+				var suffix = arguments[5];
+				return prefix + genMask(12) + suffix;
+			});
+			var regexp15 = /([1-9]\d{3})\d{4}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d(\d{2})/g;
+			result = result.replace(regexp15, function() {
+				var prefix = arguments[1];
+				var suffix = arguments[7];
+				return prefix + genMask(9) + suffix;
+			});
+			return result;
+		}
+
+		function ddmPN(source) {
+			var regexp=/(1\d{2})\d{4}(\d{4})/g;
+			var result = source.replace(regexp, function() {
+				var prefix = arguments[1];
+				var suffix = arguments[2];
+				return prefix + genMask(4) + suffix;
+			});
+			return result;
+		}
+
+		var s1 = '你好，我的邮箱是 219441@qq.com, 有事请@我, 他的邮箱是 q_qq_22@163.com';
+		var s2 = ddmEmail(s1);
+		console.log(s1);
+		console.log(s2);
+		console.log('\n\n\n');
+
+		var c1 = '我的身份证号是 13092119871212463x,他的是 130921971221478';
+		var c2 = ddmIdCard(c1);
+		console.log(c1);
+		console.log(c2);
+		console.log('\n\n\n');
+
+		var p1 = '我的手机号是 18815672542';
+		var p2 = ddmPN(p1);
+		console.log(p1);
+		console.log(p2);
+		
+	</script>
+</body>
+</html>
